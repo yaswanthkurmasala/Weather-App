@@ -1,98 +1,182 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to top, #74ebd5, #ACB6E5);
-    overflow: hidden;
-  }
-  
-  .clouds {
-    background: url('https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg') repeat-x;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 1000px;
-    width: 300%;
-    animation: moveClouds 60s linear infinite;
-    z-index: 0;
-    opacity: 0.4;
-  }
-  
-  @keyframes moveClouds {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-66.66%); }
-  }
-  
-  .app-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .weather-card {
-    background: rgba(246, 246, 246, 0.333);
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    animation: slideUp 1s ease-out;
-  }
-  
-  @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  h1 {
-    text-align: center;
-    color: #2193b0;
-  }
-  
-  .input-group {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-  
-  button {
-    padding: 10px 16px;
-    background: #2193b0;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.3s;
-  }
-  
-  button:hover {
-    background: #186b8d;
-    transform: scale(1.05);
-  }
-  
-  .weather-info {
-    text-align: center;
-    animation: fadeIn 0.8s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  footer {
-    margin-top: 20px;
-    color: white;
-    font-size: 14px;
-  }
-  
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to top, #74ebd5, #ACB6E5);
+  overflow: hidden;
+  transition: background 0.6s ease;
+}
+
+.clouds {
+  background: url('https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg') repeat-x;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1000px;
+  width: 300%;
+  animation: moveClouds 60s linear infinite;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+@keyframes moveClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-66.66%); }
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.weather-card {
+  background: rgba(246, 246, 246, 0.333);
+  padding: 65px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+h1 {
+  text-align: center;
+  color: #2193b0;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 2px solid #617b84;
+  border-radius: 15px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 16px;
+  background: #2193b0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+button:hover {
+  background: #186b8d;
+  transform: scale(1.05);
+}
+
+.weather-info {
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+footer {
+  margin-top: 20px;
+  color: white;
+  font-size: 14px;
+}
+
+/* Background Themes */
+.sunny-bg {
+  background: linear-gradient(to top, #fceabb, #f8b500);
+}
+
+.cloudy-bg {
+  background: linear-gradient(to top, #d7d2cc, #304352);
+}
+
+.rainy-bg {
+  background: linear-gradient(to top, #4e54c8, #8f94fb);
+}
+
+.snowy-bg {
+  background: linear-gradient(to top, #e0eafc, #cfdef3);
+}
+
+/* Rain Animation */
+.rain-drop {
+  position: fixed;
+  width: 2px;
+  height: 15px;
+  background: #4fc3f7;
+  animation: fall 0.5s linear infinite;
+  z-index: 2;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10px); opacity: 0.7; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Snow Animation */
+.snow-flake {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: snowFall 6s linear infinite;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+@keyframes snowFall {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Sunny Sparkle */
+.sun-sparkle {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at center, #fffacd, #ffecb3, #fbc02d);
+  border-radius: 50%;
+  box-shadow: 0 0 40px #fff176, 0 0 80px #ffeb3b;
+  animation: pulseSun 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes pulseSun {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+#gpsButton {
+  padding: 10px 16px;
+  background: #4caf50; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+#gpsButton:hover {
+  background: #388e3c; /* Darker green */
+  transform: scale(1.05);
+}

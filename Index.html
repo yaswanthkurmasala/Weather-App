@@ -8,6 +8,7 @@
 </head>
 <body>
   <div class="clouds"></div>
+  <div id="weatherEffect"></div>
   <div class="app-container">
     <div class="weather-card">
       <h1>Weather App</h1>
@@ -19,6 +20,8 @@
           autocomplete="off"
         />
         <button onclick="getWeather()">Search</button>
+        <button onclick="getLocationWeather()" id="gpsButton">Use My Location</button>
+
       </div>
       <div id="weatherResult" class="weather-info"></div>
     </div>

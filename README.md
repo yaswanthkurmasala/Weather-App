@@ -1,2 +1,2 @@
-# Wheater-App
-Wheater App (using API)
+#Weather-App
+Weather-App (using API)
